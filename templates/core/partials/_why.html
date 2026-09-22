@@ -1,0 +1,43 @@
+<section class="why" id="why-us">
+    <div class="container">
+        <header class="section-head-center reveal">
+            {% if why.eyebrow %}<span class="eyebrow">{{ why.eyebrow }}</span>{% endif %}
+            <h2 class="section-heading">{{ why.heading }}</h2>
+            {% if why.subtext %}<p class="section-subtext why__subtext">{{ why.subtext }}</p>{% endif %}
+        </header>
+
+        <div class="why__grid reveal">
+            <div class="why__col">
+                {% for feature in why.features.all|slice:":3" %}
+                    <div class="why-feature">
+                        <span class="why-feature__icon material-symbols-rounded">{{ feature.icon }}</span>
+                        <strong>{{ feature.title }}</strong>
+                        {% if feature.description %}<p>{{ feature.description }}</p>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="why__media">
+                {% if why.image %}
+                    <img src="{{ why.image.url }}" alt="{{ why.heading }}">
+                {% endif %}
+                {% if why.image_badge_label %}
+                    <div class="why__media-badge">
+                        <strong>{{ why.image_badge_label }}</strong>
+                        {% if why.image_badge_value %}<span>{{ why.image_badge_value }}</span>{% endif %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="why__col">
+                {% for feature in why.features.all|slice:"3:" %}
+                    <div class="why-feature">
+                        <span class="why-feature__icon material-symbols-rounded">{{ feature.icon }}</span>
+                        <strong>{{ feature.title }}</strong>
+                        {% if feature.description %}<p>{{ feature.description }}</p>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

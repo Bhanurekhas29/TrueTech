@@ -1,0 +1,69 @@
+{% load static %}
+<section class="contact" id="contact" {% if contact.background_image %}style="--contact-bg: url('{{ contact.background_image.url }}')"{% endif %}>
+    <div class="contact__overlay"></div>
+    <div class="container contact__inner reveal">
+        <div class="contact__intro">
+            {% if contact.eyebrow %}<span class="eyebrow">{{ contact.eyebrow }}</span>{% endif %}
+            <h2 class="section-heading contact__heading">{{ contact.heading }}</h2>
+            {% if contact.subtext %}<p class="contact__subtext">{{ contact.subtext }}</p>{% endif %}
+
+            {% if contact.checklist_items.exists %}
+                <ul class="contact__checklist">
+                    {% for point in contact.checklist_items.all %}
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            {{ point.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <form class="contact__form" method="post" action="{% url 'home' %}#contact">
+            {% csrf_token %}
+            <div class="contact__form-row">
+                <div class="contact__field">
+                    <label for="full_name">Full name *</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Your name" required>
+                </div>
+                <div class="contact__field">
+                    <label for="company">Company *</label>
+                    <input type="text" id="company" name="company" placeholder="Company name" required>
+                </div>
+            </div>
+            <div class="contact__form-row">
+                <div class="contact__field">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                </div>
+                <div class="contact__field">
+                    <label for="phone">Phone</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="With country code"
+                        pattern="[0-9+\-\s()]{7,20}"
+                        inputmode="tel"
+                        title="Digits only, with optional +, spaces, hyphens or brackets"
+                    >
+                </div>
+            </div>
+            <div class="contact__field">
+                <label for="service_interested">Service you're interested in</label>
+                <select id="service_interested" name="service_interested">
+                    {% for item in what_we_do.items.all %}
+                        <option value="{{ item.title }}">{{ item.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="contact__field">
+                <label for="requirement">Requirement</label>
+                <textarea id="requirement" name="requirement" rows="4" placeholder="Volumes, hours of cover, systems involved, timelines"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary contact__submit">
+                {{ contact.submit_button_text|default:"Send your enquiry" }}
+            </button>
+        </form>
+    </div>
+</section>

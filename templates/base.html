@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TrueTechs — IT · Automation · BPO{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/floating-actions.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% include "core/partials/_header.html" %}
+
+    {% if messages %}
+        <div class="site-messages">
+            {% for message in messages %}
+                <div class="site-message site-message--{{ message.tags }}">
+                    <span class="material-symbols-rounded site-message__icon">
+                        {% if message.tags == 'success' %}check_circle{% else %}error{% endif %}
+                    </span>
+                    <span class="site-message__text">{{ message }}</span>
+                    <button type="button" class="site-message__close" aria-label="Dismiss">
+                        <span class="material-symbols-rounded">close</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "core/partials/_footer.html" %}
+    {% include "core/partials/_floating_actions.html" %}
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

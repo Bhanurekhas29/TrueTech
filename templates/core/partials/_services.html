@@ -1,0 +1,102 @@
+{% load core_extras %}
+<section class="services" id="services">
+    <div class="container">
+        {% for service in services %}
+            <article class="service-block {% if service.image_position == 'right' %}service-block--reverse{% endif %} reveal">
+                <header class="service-block__header">
+                    {% if service.eyebrow %}<span class="eyebrow">{{ service.eyebrow }}</span>{% endif %}
+                    <h2 class="section-heading">
+                        {{ service.heading_main }}
+                        {% if service.heading_highlight %}<span class="highlight">{{ service.heading_highlight }}</span>{% endif %}
+                    </h2>
+                    {% if service.subtext %}<p class="section-subtext">{{ service.subtext }}</p>{% endif %}
+                </header>
+
+                <div class="service-block__row">
+                    <div class="service-block__media">
+                        <div class="service-block__image-frame">
+                            {% if service.image %}
+                                <img src="{{ service.image.url }}" alt="{{ service.heading_main }}">
+                            {% endif %}
+                        </div>
+
+                        {% if service.image_badge_text %}
+                            <div class="service-block__badge service-block__badge--top">
+                                <span class="service-block__dot"></span>
+                                {{ service.image_badge_text }}
+                                {% with tags=service.image_tags|split_csv %}
+                                    {% if tags %}
+                                        <div class="service-block__tag-row">
+                                            {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+                                        </div>
+                                    {% endif %}
+                                {% endwith %}
+                            </div>
+                        {% endif %}
+
+                        {% if service.image_stat_value %}
+                            <div class="service-block__badge service-block__badge--stat">
+                                <strong>{{ service.image_stat_value }}</strong>
+                                <span>{{ service.image_stat_caption }}</span>
+                                <div class="service-block__stat-bars">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if service.corner_badge_title %}
+                            <div class="service-block__badge service-block__badge--corner">
+                                {% if service.corner_badge_icon %}
+                                    <span class="service-block__corner-icon material-symbols-rounded">{{ service.corner_badge_icon }}</span>
+                                {% endif %}
+                                <div>
+                                    <strong>{{ service.corner_badge_title }}</strong>
+                                    <span>{{ service.corner_badge_subtitle }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="service-block__features">
+                        {% for feature in service.features.all %}
+                            <div class="service-feature">
+                                <div class="service-feature__header">
+                                    <span class="service-feature__icon material-symbols-rounded">{{ feature.icon }}</span>
+                                    <div class="service-feature__title-group">
+                                        <span class="service-feature__number">{{ forloop.counter|stringformat:"02d" }}</span>
+                                        <strong>{{ feature.title }}</strong>
+                                    </div>
+                                </div>
+                                {% if feature.description %}<p>{{ feature.description }}</p>{% endif %}
+                                <span class="service-feature__line"></span>
+                            </div>
+                        {% endfor %}
+
+                        {% with pills=service.bottom_tags|split_csv %}
+                            {% if pills %}
+                                <div class="service-block__pills">
+                                    {% for pill in pills %}<span class="pill">{{ pill }}</span>{% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+
+                        {% if service.cta_heading %}
+                            <div class="service-block__cta">
+                                <div>
+                                    <strong>{{ service.cta_heading }}</strong>
+                                    {% if service.cta_subtext %}<span>{{ service.cta_subtext }}</span>{% endif %}
+                                </div>
+                                {% if service.cta_button_text %}
+                                    <a href="{{ service.cta_button_link }}" class="btn btn-primary">
+                                        {{ service.cta_button_text }}
+                                        <span class="material-symbols-rounded">arrow_forward</span>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>

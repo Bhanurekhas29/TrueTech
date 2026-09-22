@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --tt-primary: #0B4EA2;
+    --tt-accent: #F58220;
+    --tt-bg-light: #F4F7FB;
+}
+
+html, body,
+p, span, div, label, input, textarea, select, table, th, td, li, a, button {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Keep icon glyph fonts untouched */
+i, .fa, .fas, .far, .fab, [class*=" fa-"], [class^="fa-"] {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+body {
+    background-color: #FAFBFC;
+}
+
+h1, h2, h3, h4, h5, h6,
+.brand-text,
+.card-title,
+.nav-link,
+.btn {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Black navbar/sidebar, white content area (no blue backgrounds) */
+.app-header, .app-sidebar, .sidebar-wrapper, .navbar {
+    background-color: #14161A !important;
+    color: #E7E9EC !important;
+}
+
+.app-sidebar .nav-link,
+.app-sidebar .nav-header,
+.sidebar-menu .nav-link {
+    color: #C7CBD1 !important;
+}
+
+.brand-link .brand-text {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+a {
+    color: var(--tt-primary);
+}
+
+.btn-primary,
+.bg-primary {
+    background-color: var(--tt-primary) !important;
+    border-color: var(--tt-primary) !important;
+}
+
+.btn-warning {
+    background-color: var(--tt-accent) !important;
+    border-color: var(--tt-accent) !important;
+    color: #fff !important;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #E7ECF3;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--tt-primary);
+    border-bottom: 2px solid var(--tt-primary);
+}

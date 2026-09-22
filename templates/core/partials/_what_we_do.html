@@ -1,0 +1,55 @@
+{% load core_extras %}
+<section class="what-we-do" id="what-we-do">
+    <div class="container">
+        <div class="what-we-do__intro reveal">
+            <div>
+                {% if what_we_do.eyebrow %}<span class="eyebrow">{{ what_we_do.eyebrow }}</span>{% endif %}
+                <h2 class="section-heading">{{ what_we_do.heading }}</h2>
+            </div>
+            {% if what_we_do.subtext %}<p class="section-subtext">{{ what_we_do.subtext }}</p>{% endif %}
+        </div>
+
+        <div class="wwd__layout reveal">
+            <div class="wwd__tabs" role="tablist">
+                {% for item in what_we_do.items.all %}
+                    <button
+                        type="button"
+                        class="wwd__tab{% if forloop.first %} is-active{% endif %}"
+                        data-wwd-target="wwd-panel-{{ item.id }}"
+                    >
+                        <span class="wwd__tab-num">{{ forloop.counter|stringformat:"02d" }}</span>
+                        <span class="wwd__tab-label">{{ item.title }}</span>
+                        <span class="material-symbols-rounded wwd__tab-chevron">chevron_right</span>
+                    </button>
+                {% endfor %}
+            </div>
+
+            <div class="wwd__panels">
+                {% for item in what_we_do.items.all %}
+                    <div class="wwd__panel{% if forloop.first %} is-active{% endif %}" id="wwd-panel-{{ item.id }}">
+                        <div class="wwd__panel-image">
+                            {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.title }}">{% endif %}
+                        </div>
+                        <div class="wwd__panel-content">
+                            <span class="wwd__panel-icon material-symbols-rounded">{{ item.icon }}</span>
+                            <span class="wwd__panel-number">{{ forloop.counter|stringformat:"02d" }}</span>
+                            <h3>{{ item.title }}</h3>
+                            {% if item.description %}<p class="wwd__panel-desc">{{ item.description }}</p>{% endif %}
+                            <ul class="wwd__bullets">
+                                {% for bullet in item.bullet_points|split_lines %}
+                                    <li>
+                                        <span class="material-symbols-rounded">check_circle</span>
+                                        {{ bullet }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% if item.cta_text %}
+                                <a href="{{ item.cta_link }}" class="btn btn-primary">{{ item.cta_text }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

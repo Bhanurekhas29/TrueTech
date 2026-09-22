@@ -1,0 +1,46 @@
+<section class="hero" id="hero" {% if hero.background_image %}style="--hero-bg: url('{{ hero.background_image.url }}')"{% endif %}>
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+        <div class="hero__content reveal">
+            {% if hero.eyebrow %}<span class="eyebrow hero__eyebrow">{{ hero.eyebrow }}</span>{% endif %}
+            <h1 class="hero__heading">
+                {{ hero.heading_main }}
+                {% if hero.heading_highlight %}<span class="highlight">{{ hero.heading_highlight }}</span>{% endif %}
+            </h1>
+            {% if hero.subtext %}<p class="hero__subtext">{{ hero.subtext }}</p>{% endif %}
+
+            <div class="hero__actions">
+                {% if hero.primary_cta_text %}
+                    <a href="{{ hero.primary_cta_link }}" class="btn btn-primary">{{ hero.primary_cta_text }}</a>
+                {% endif %}
+                {% if hero.secondary_cta_text %}
+                    <a href="{{ hero.secondary_cta_link }}" class="btn btn-secondary hero__secondary-btn">
+                        {{ hero.secondary_cta_text }}
+                        <span class="material-symbols-rounded">chevron_right</span>
+                    </a>
+                {% endif %}
+            </div>
+
+            {% if hero.features.exists %}
+                <ul class="hero__features">
+                    {% for feature in hero.features.all %}
+                        <li>
+                            <span class="material-symbols-rounded">{{ feature.icon }}</span>
+                            {{ feature.label }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if hero.stat_value %}
+        <div class="hero__stat reveal">
+            <span class="hero__stat-value">{{ hero.stat_value }}</span>
+            <span class="hero__stat-divider"></span>
+            <span class="hero__stat-bars">
+                <span></span><span></span><span></span><span></span>
+            </span>
+        </div>
+    {% endif %}
+</section>

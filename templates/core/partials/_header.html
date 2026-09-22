@@ -1,0 +1,37 @@
+{% load static %}
+<header class="site-header" id="home">
+    <div class="container site-header__inner">
+        <a class="site-header__brand" href="#home">
+            {% if header.logo %}
+                <img src="{{ header.logo.url }}" alt="{{ header.brand_name }}" class="site-header__logo-img">
+            {% else %}
+                <span class="site-header__brand-name">
+                    <span class="site-header__brand-name--primary">{{ header.brand_name|slice:":4" }}</span><span class="site-header__brand-name--accent">{{ header.brand_name|slice:"4:" }}</span>
+                </span>
+            {% endif %}
+            {% if header.tagline %}
+                <span class="site-header__divider"></span>
+                <span class="site-header__tagline">{{ header.tagline }}</span>
+            {% endif %}
+        </a>
+
+        <nav class="site-header__nav" id="site-nav">
+            <ul>
+                {% for item in header.nav_items.all %}
+                    {% if item.is_active %}
+                        <li><a href="{{ item.link }}">{{ item.label }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <div class="site-header__actions">
+            {% if header.cta_text %}
+                <a href="{{ header.cta_link }}" class="btn btn-primary site-header__cta">{{ header.cta_text }}</a>
+            {% endif %}
+            <button class="site-header__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+        </div>
+    </div>
+</header>

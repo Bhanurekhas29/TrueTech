@@ -1,0 +1,78 @@
+<section class="who-we-are" id="who-we-are">
+    <div class="container">
+        <header class="section-head-center reveal">
+            {% if who_we_are.eyebrow %}<span class="eyebrow">{{ who_we_are.eyebrow }}</span>{% endif %}
+            <h2 class="section-heading">{{ who_we_are.heading }}</h2>
+        </header>
+
+        <div class="who-offices reveal">
+            <div class="who-office-card">
+                {% if who_we_are.office1_image %}
+                    <img src="{{ who_we_are.office1_image.url }}" alt="{{ who_we_are.office1_city }}">
+                {% endif %}
+                {% if who_we_are.office1_badge_label %}
+                    <span class="who-office-card__badge">
+                        <span class="material-symbols-rounded">location_on</span>
+                        {{ who_we_are.office1_badge_label }}
+                    </span>
+                {% endif %}
+                <div class="who-office-card__caption">
+                    <strong>{{ who_we_are.office1_city }}</strong>
+                    {% if who_we_are.office1_subcaption %}<span>{{ who_we_are.office1_subcaption }}</span>{% endif %}
+                </div>
+            </div>
+            <div class="who-office-card">
+                {% if who_we_are.office2_image %}
+                    <img src="{{ who_we_are.office2_image.url }}" alt="{{ who_we_are.office2_city }}">
+                {% endif %}
+                {% if who_we_are.office2_badge_label %}
+                    <span class="who-office-card__badge">
+                        <span class="material-symbols-rounded">location_on</span>
+                        {{ who_we_are.office2_badge_label }}
+                    </span>
+                {% endif %}
+                <div class="who-office-card__caption">
+                    <strong>{{ who_we_are.office2_city }}</strong>
+                    {% if who_we_are.office2_subcaption %}<span>{{ who_we_are.office2_subcaption }}</span>{% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% if who_we_are.office1_pill_label and who_we_are.office2_pill_label %}
+            <div class="who-connector reveal">
+                <span class="who-connector__pill who-connector__pill--dubai">{{ who_we_are.office1_pill_label }}</span>
+                <span class="who-connector__line"><span class="who-connector__dot"></span></span>
+                <span class="who-connector__pill who-connector__pill--chennai">{{ who_we_are.office2_pill_label }}</span>
+            </div>
+        {% endif %}
+
+        <div class="who-content reveal">
+            <div class="who-body">
+                {{ who_we_are.body_text|linebreaks }}
+            </div>
+
+            {% if who_we_are.stat1_value or who_we_are.stat2_value or who_we_are.stat3_value %}
+                <div class="who-stats stagger">
+                    {% if who_we_are.stat1_value %}
+                        <div class="who-stat">
+                            <strong>{{ who_we_are.stat1_value }}</strong>
+                            <span>{{ who_we_are.stat1_label }}</span>
+                        </div>
+                    {% endif %}
+                    {% if who_we_are.stat2_value %}
+                        <div class="who-stat">
+                            <strong>{{ who_we_are.stat2_value }}</strong>
+                            <span>{{ who_we_are.stat2_label }}</span>
+                        </div>
+                    {% endif %}
+                    {% if who_we_are.stat3_value %}
+                        <div class="who-stat">
+                            <strong>{{ who_we_are.stat3_value }}</strong>
+                            <span>{{ who_we_are.stat3_label }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

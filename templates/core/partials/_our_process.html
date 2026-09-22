@@ -1,0 +1,28 @@
+<section class="journey" id="process">
+    <div class="container">
+        <header class="journey__header reveal">
+            {% if our_process.eyebrow %}
+                <span class="eyebrow eyebrow--dot eyebrow--light">
+                    <span class="eyebrow__dot"></span>
+                    {{ our_process.eyebrow }}
+                </span>
+            {% endif %}
+            <h2 class="section-heading journey__heading">{{ our_process.heading }}</h2>
+            {% if our_process.subtext %}<p class="journey__subtext">{{ our_process.subtext }}</p>{% endif %}
+        </header>
+
+        <div class="journey__timeline reveal" data-step-count="{{ our_process.steps.count }}">
+            {% for step in our_process.steps.all %}
+                <div class="journey-node">
+                    <div class="journey-node__row">
+                        <span class="journey-node__icon material-symbols-rounded">{{ step.icon }}</span>
+                        {% if not forloop.last %}<span class="journey-node__connector"><span class="journey-node__connector-fill"></span></span>{% endif %}
+                    </div>
+                    <span class="journey-node__number">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <strong>{{ step.title }}</strong>
+                    {% if step.description %}<p>{{ step.description }}</p>{% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

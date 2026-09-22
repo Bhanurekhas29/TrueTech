@@ -1,0 +1,38 @@
+<section class="faq" id="faq">
+    <div class="container">
+        <header class="section-head-center reveal">
+            {% if faq.eyebrow %}<span class="eyebrow">{{ faq.eyebrow }}</span>{% endif %}
+            <h2 class="section-heading">{{ faq.heading }}</h2>
+        </header>
+
+        <div class="faq__grid reveal">
+            <div class="faq__media">
+                {% if faq.image %}
+                    <img src="{{ faq.image.url }}" alt="{{ faq.heading }}">
+                {% endif %}
+                {% if faq.quote_text %}
+                    <div class="faq__quote">
+                        <p>&ldquo;{{ faq.quote_text }}&rdquo;</p>
+                        {% if faq.quote_attribution %}
+                            <span class="faq__quote-attr"><span class="faq__quote-dash"></span>{{ faq.quote_attribution }}</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="faq__list">
+                {% for item in faq.items.all %}
+                    <div class="faq-item{% if forloop.first %} is-open{% endif %}">
+                        <button type="button" class="faq-item__question">
+                            {{ item.question }}
+                            <span class="material-symbols-rounded faq-item__icon">{% if forloop.first %}remove{% else %}add{% endif %}</span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>{{ item.answer }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

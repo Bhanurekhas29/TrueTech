@@ -1,0 +1,145 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #FFFFFFF2;
+    box-shadow: 0px 1px 2px 0px #0000000D;
+    backdrop-filter: blur(12px);
+    transition: box-shadow 0.3s ease;
+}
+
+.site-header.is-scrolled {
+    box-shadow: 0 4px 20px rgba(11, 20, 36, 0.08);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 81px;
+    transition: height 0.3s ease;
+}
+
+.site-header.is-scrolled .site-header__inner {
+    height: 66px;
+}
+
+.site-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.site-header__logo-img {
+    height: 32px;
+    object-fit: contain;
+}
+
+.site-header__brand-name {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.site-header__brand-name--primary {
+    color: var(--color-primary);
+}
+
+.site-header__brand-name--accent {
+    color: var(--color-accent);
+}
+
+.site-header__divider {
+    width: 1px;
+    height: 20px;
+    background: var(--color-border);
+}
+
+.site-header__tagline {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+}
+
+.site-header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.site-header__nav a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color 0.2s ease;
+}
+
+.site-header__nav a:hover {
+    color: var(--color-primary);
+}
+
+.site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.site-header__cta {
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+.site-header__toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 6px;
+    color: var(--color-ink);
+}
+
+@media (max-width: 900px) {
+    .site-header__nav {
+        position: fixed;
+        top: 81px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--color-border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .site-header__nav.is-open {
+        max-height: 400px;
+    }
+
+    .site-header__nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 24px 20px;
+    }
+
+    .site-header__nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .site-header__nav a {
+        display: block;
+        padding: 14px 0;
+    }
+
+    .site-header__cta {
+        display: none;
+    }
+
+    .site-header__toggle {
+        display: flex;
+    }
+}

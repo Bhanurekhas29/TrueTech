@@ -1,0 +1,209 @@
+.commitments {
+    padding: 56px 0 40px;
+}
+
+.eyebrow--dot {
+    gap: 8px;
+    color: var(--color-primary);
+}
+
+.eyebrow--dot::after {
+    display: none;
+}
+
+.eyebrow__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.commitments__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.commitment-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 340px;
+    background: linear-gradient(135deg, var(--color-bg-blue), #dfe9f7);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.25s ease;
+}
+
+.commitment-card:hover {
+    transform: translateY(-4px);
+}
+
+.commitment-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.commitment-card__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    background: linear-gradient(0deg, rgba(11, 20, 36, 0.92) 20%, rgba(11, 20, 36, 0.35) 65%, rgba(11, 20, 36, 0.1) 100%);
+}
+
+.commitment-card__number {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+
+.commitment-card strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.commitment-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 14px;
+}
+
+.commitment-card__line {
+    display: block;
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--color-accent);
+}
+
+.journey {
+    padding: 64px 0;
+    background: var(--color-primary);
+}
+
+.journey__header {
+    max-width: 720px;
+}
+
+.eyebrow--light {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.journey__heading {
+    color: #fff;
+    margin: 16px 0 12px;
+}
+
+.journey__subtext {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 17px;
+}
+
+.journey__timeline {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 56px;
+    gap: 0;
+}
+
+.journey-node {
+    flex: 1;
+    min-width: 0;
+    padding-right: 16px;
+}
+
+.journey-node__row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.journey-node__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(245, 130, 32, 0.3);
+    color: #fff;
+    font-size: 26px;
+    flex-shrink: 0;
+    transition: background-color 0.4s ease;
+}
+
+.journey-node.is-active .journey-node__icon {
+    background: var(--color-accent);
+}
+
+.journey-node__connector {
+    flex: 1;
+    height: 2px;
+    background: rgba(245, 130, 32, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-node__connector-fill {
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background: var(--color-accent);
+    transition: width 0.6s ease;
+}
+
+.journey-node__number {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 6px;
+}
+
+.journey-node strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.journey-node p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .journey__timeline {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .journey-node {
+        padding-right: 0;
+    }
+
+    .journey-node__connector {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .commitments__grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,120 @@
+.contact {
+    position: relative;
+    padding: 64px 0;
+    background: var(--contact-bg, none) center/cover no-repeat, linear-gradient(135deg, #0B4EA2, #072F63);
+    color: #fff;
+    overflow: hidden;
+}
+
+.contact__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 78, 162, 0.9), rgba(7, 47, 99, 0.94));
+}
+
+.contact__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.contact__intro .eyebrow {
+    color: var(--color-accent);
+}
+
+.contact__intro .eyebrow::after {
+    background: var(--color-accent);
+}
+
+.contact__heading {
+    color: #fff;
+    margin: 20px 0 16px;
+}
+
+.contact__subtext {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 28px;
+}
+
+.contact__checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact__checklist .material-symbols-rounded {
+    color: var(--color-accent);
+    font-size: 20px;
+}
+
+.contact__form {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    color: var(--color-text);
+}
+
+.contact__form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact__field {
+    margin-bottom: 18px;
+}
+
+.contact__field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+}
+
+.contact__field input,
+.contact__field select,
+.contact__field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-ink);
+    background: #fff;
+}
+
+.contact__field input:focus,
+.contact__field select:focus,
+.contact__field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.contact__field textarea {
+    resize: vertical;
+}
+
+.contact__submit {
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .contact__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form-row {
+        grid-template-columns: 1fr;
+    }
+}

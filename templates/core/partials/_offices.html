@@ -1,0 +1,94 @@
+{% load core_extras %}
+<section class="offices" id="offices">
+    <div class="container">
+        <header class="section-head-center reveal">
+            {% if offices.eyebrow %}<span class="eyebrow">{{ offices.eyebrow }}</span>{% endif %}
+            <h2 class="section-heading">{{ offices.heading }}</h2>
+            {% if offices.subtext %}<p class="section-subtext">{{ offices.subtext }}</p>{% endif %}
+        </header>
+
+        <div class="offices__grid reveal">
+            <div class="office-detail-card">
+                <div class="office-detail-card__media">
+                    {% if offices.office1_image %}
+                        <img src="{{ offices.office1_image.url }}" alt="{{ offices.office1_city }}">
+                    {% endif %}
+                    <div class="office-detail-card__overlay">
+                        {% if offices.office1_badge_label %}
+                            <span class="office-detail-card__badge">
+                                <span class="material-symbols-rounded">location_on</span>
+                                {{ offices.office1_badge_label }}
+                            </span>
+                        {% endif %}
+                        <strong>{{ offices.office1_city }}</strong>
+                        {% if offices.office1_address %}<p>{{ offices.office1_address }}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="office-detail-card__meta">
+                    {% if offices.office1_timezone %}
+                        <span><span class="material-symbols-rounded">schedule</span>{{ offices.office1_timezone }}</span>
+                    {% endif %}
+                    {% if offices.office1_phone %}
+                        <span><span class="material-symbols-rounded">call</span>{{ offices.office1_phone }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="office-detail-card">
+                <div class="office-detail-card__media">
+                    {% if offices.office2_image %}
+                        <img src="{{ offices.office2_image.url }}" alt="{{ offices.office2_city }}">
+                    {% endif %}
+                    <div class="office-detail-card__overlay">
+                        {% if offices.office2_badge_label %}
+                            <span class="office-detail-card__badge office-detail-card__badge--alt">
+                                <span class="material-symbols-rounded">location_on</span>
+                                {{ offices.office2_badge_label }}
+                            </span>
+                        {% endif %}
+                        <strong>{{ offices.office2_city }}</strong>
+                        {% if offices.office2_address %}<p>{{ offices.office2_address }}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="office-detail-card__meta">
+                    {% if offices.office2_timezone %}
+                        <span><span class="material-symbols-rounded">schedule</span>{{ offices.office2_timezone }}</span>
+                    {% endif %}
+                    {% if offices.office2_phone %}
+                        <span><span class="material-symbols-rounded">call</span>{{ offices.office2_phone }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% if offices.banner_title1 or offices.banner_title2 %}
+            <div class="offices__banner reveal">
+                <div class="offices__banner-block">
+                    {% if offices.banner_icon1 %}
+                        <span class="offices__banner-icon material-symbols-rounded">{{ offices.banner_icon1 }}</span>
+                    {% endif %}
+                    <div>
+                        <strong>{{ offices.banner_title1 }}</strong>
+                        {% if offices.banner_text1 %}<p>{{ offices.banner_text1 }}</p>{% endif %}
+                    </div>
+                </div>
+                <span class="offices__banner-divider"></span>
+                <div class="offices__banner-block">
+                    {% if offices.banner_icon2 %}
+                        <span class="offices__banner-icon material-symbols-rounded">{{ offices.banner_icon2 }}</span>
+                    {% endif %}
+                    <div>
+                        <strong>{{ offices.banner_title2 }}</strong>
+                        {% with tags=offices.banner_tags2|split_csv %}
+                            {% if tags %}
+                                <div class="offices__banner-pills">
+                                    {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

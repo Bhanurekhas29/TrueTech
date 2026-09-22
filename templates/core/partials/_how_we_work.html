@@ -1,0 +1,29 @@
+<section class="commitments" id="how-we-work">
+    <div class="container">
+        <header class="section-head-center reveal">
+            {% if process.eyebrow %}
+                <span class="eyebrow eyebrow--dot">
+                    <span class="eyebrow__dot"></span>
+                    {{ process.eyebrow }}
+                </span>
+            {% endif %}
+            <h2 class="section-heading">{{ process.heading }}</h2>
+        </header>
+
+        <div class="commitments__grid stagger">
+            {% for step in process.steps.all %}
+                <div class="commitment-card">
+                    {% if step.image %}
+                        <img src="{{ step.image.url }}" alt="{{ step.title }}">
+                    {% endif %}
+                    <div class="commitment-card__overlay">
+                        <span class="commitment-card__number">{{ forloop.counter|stringformat:"02d" }}</span>
+                        <strong>{{ step.title }}</strong>
+                        {% if step.description %}<p>{{ step.description }}</p>{% endif %}
+                        <span class="commitment-card__line"></span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
