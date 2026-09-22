@@ -21,7 +21,7 @@ class SingletonModel(models.Model):
 
 
 class SiteHeader(SingletonModel):
-    brand_name = models.CharField(max_length=100, default="TrueTechs")
+    brand_name = models.CharField(max_length=100, default="TrueTech")
     tagline = models.CharField(max_length=150, blank=True, help_text="e.g. IT · AUTOMATION · BPO")
     logo = models.ImageField(upload_to="header/", blank=True, null=True)
     cta_text = models.CharField(max_length=50, blank=True, help_text="e.g. Get a quote")
@@ -294,6 +294,7 @@ class OfficesSection(SingletonModel):
     office1_image = models.ImageField(upload_to="offices/", blank=True, null=True)
     office1_badge_label = models.CharField(max_length=50, blank=True, help_text="e.g. HEAD OFFICE")
     office1_city = models.CharField(max_length=100, blank=True, help_text="e.g. Dubai, UAE")
+    office1_description = models.TextField(blank=True, help_text="e.g. Company registration, commercial agreements, client relationships and account management for the region.")
     office1_address = models.CharField(max_length=255, blank=True)
     office1_timezone = models.CharField(max_length=50, blank=True, help_text="e.g. GST · UTC+4")
     office1_phone = models.CharField(max_length=30, blank=True)
@@ -301,11 +302,14 @@ class OfficesSection(SingletonModel):
     office2_image = models.ImageField(upload_to="offices/", blank=True, null=True)
     office2_badge_label = models.CharField(max_length=50, blank=True, help_text="e.g. DELIVERY CENTRE")
     office2_city = models.CharField(max_length=100, blank=True, help_text="e.g. Chennai, India")
+    office2_description = models.TextField(blank=True, help_text="e.g. The technical team — NOC and service desk engineers, automation developers, and back-office process staff.")
     office2_address = models.CharField(max_length=255, blank=True)
     office2_timezone = models.CharField(max_length=50, blank=True, help_text="e.g. IST · UTC+5:30")
     office2_phone = models.CharField(max_length=30, blank=True)
 
+    banner_image = models.ImageField(upload_to="offices/", blank=True, null=True, help_text="Third card background image")
     banner_icon1 = models.CharField(max_length=50, blank=True, help_text="Material icon name, e.g. schedule")
+    banner_badge1 = models.CharField(max_length=50, blank=True, help_text="Third card eyebrow label, e.g. COVERAGE")
     banner_title1 = models.CharField(max_length=100, blank=True, help_text="e.g. Around the clock")
     banner_text1 = models.CharField(max_length=255, blank=True)
 
@@ -326,7 +330,7 @@ class FAQSection(SingletonModel):
     heading = models.CharField(max_length=255, help_text="e.g. What clients ask before they start.")
     image = models.ImageField(upload_to="faq/", blank=True, null=True)
     quote_text = models.TextField(blank=True, help_text="e.g. One point of contact for your core operational needs, with consistent quality and measurable results.")
-    quote_attribution = models.CharField(max_length=100, blank=True, help_text="e.g. TrueTechs")
+    quote_attribution = models.CharField(max_length=100, blank=True, help_text="e.g. TrueTech")
 
     class Meta:
         verbose_name = "FAQ"
@@ -401,12 +405,14 @@ class FooterSection(SingletonModel):
     linkedin_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)
+    facebook_url = models.URLField(blank=True)
+    youtube_url = models.URLField(blank=True)
     phone_number = models.CharField(max_length=30, blank=True, help_text="e.g. +971 50 123 4567 (used for the call icon)")
 
     contact_email = models.CharField(max_length=150, blank=True, help_text="e.g. hello@truetechs.com, or 'To be confirmed'")
     hours_text = models.CharField(max_length=150, blank=True, help_text="e.g. Service desk 24/7 · Office hours GST and IST")
 
-    copyright_text = models.CharField(max_length=150, blank=True, help_text="e.g. © 2026 TrueTechs. All rights reserved.")
+    copyright_text = models.CharField(max_length=150, blank=True, help_text="e.g. © 2026 TrueTech. All rights reserved.")
     bottom_note = models.CharField(max_length=150, blank=True, help_text="e.g. 24/7 monitoring and service desk")
 
     class Meta:

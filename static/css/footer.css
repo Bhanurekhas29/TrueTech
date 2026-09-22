@@ -46,7 +46,7 @@
     margin-bottom: 2px;
 }
 
-.footer-info span {
+.footer-info div span {
     color: var(--color-text-muted);
 }
 
@@ -55,6 +55,15 @@
     grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
     gap: 32px;
     padding: 56px 48px 40px;
+}
+
+.site-footer__logo-img {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
 }
 
 .site-footer__brand-name {
@@ -121,6 +130,14 @@
 
 .site-footer__socials a.site-footer__socials-icon--twitter {
     background: #000000;
+}
+
+.site-footer__socials a.site-footer__socials-icon--facebook {
+    background: #1877F2;
+}
+
+.site-footer__socials a.site-footer__socials-icon--youtube {
+    background: #FF0000;
 }
 
 .site-footer__socials a.site-footer__socials-icon--email {

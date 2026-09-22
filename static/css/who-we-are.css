@@ -202,3 +202,20 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .who-connector {
+        gap: 8px;
+    }
+
+    .who-connector__line {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .who-connector__pill {
+        padding: 8px 12px;
+        font-size: 11px;
+        flex-shrink: 0;
+    }
+}

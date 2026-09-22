@@ -8,10 +8,10 @@
                 <span class="site-header__brand-name">
                     <span class="site-header__brand-name--primary">{{ header.brand_name|slice:":4" }}</span><span class="site-header__brand-name--accent">{{ header.brand_name|slice:"4:" }}</span>
                 </span>
-            {% endif %}
-            {% if header.tagline %}
-                <span class="site-header__divider"></span>
-                <span class="site-header__tagline">{{ header.tagline }}</span>
+                {% if header.tagline %}
+                    <span class="site-header__divider"></span>
+                    <span class="site-header__tagline">{{ header.tagline }}</span>
+                {% endif %}
             {% endif %}
         </a>
 

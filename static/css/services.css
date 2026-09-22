@@ -27,6 +27,11 @@
     grid-template-columns: 1.1fr 1fr;
     gap: 48px;
     align-items: center;
+    min-width: 0;
+}
+
+.service-block__row > * {
+    min-width: 0;
 }
 
 .service-block--reverse .service-block__row {
@@ -226,13 +231,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    min-width: 0;
 }
 
 .service-feature {
     background: transparent;
     padding: 0;
-    width: 324px;
-    max-width: 100%;
+    width: 100%;
+    min-width: 0;
     min-height: 174.39px;
 }
 

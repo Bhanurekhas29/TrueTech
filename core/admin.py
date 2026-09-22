@@ -163,9 +163,9 @@ class WhatWeDoSectionAdmin(SingletonAdmin):
 class OfficesSectionAdmin(SingletonAdmin):
     fieldsets = (
         ("General", {"fields": ("eyebrow", "heading", "subtext")}),
-        ("Office 1", {"fields": ("office1_image", "office1_badge_label", "office1_city", "office1_address", "office1_timezone", "office1_phone")}),
-        ("Office 2", {"fields": ("office2_image", "office2_badge_label", "office2_city", "office2_address", "office2_timezone", "office2_phone")}),
-        ("Banner", {"fields": ("banner_icon1", "banner_title1", "banner_text1", "banner_icon2", "banner_title2", "banner_tags2")}),
+        ("Office 1", {"fields": ("office1_image", "office1_badge_label", "office1_city", "office1_description", "office1_address", "office1_timezone", "office1_phone")}),
+        ("Office 2", {"fields": ("office2_image", "office2_badge_label", "office2_city", "office2_description", "office2_address", "office2_timezone", "office2_phone")}),
+        ("Card 3 (coverage / channels)", {"fields": ("banner_image", "banner_icon1", "banner_badge1", "banner_title1", "banner_text1", "banner_icon2", "banner_title2", "banner_tags2")}),
     )
 
 
@@ -220,7 +220,7 @@ class FooterSectionAdmin(SingletonAdmin):
     inlines = [FooterLinkInline]
     fieldsets = (
         ("General", {"fields": ("description",)}),
-        ("Social links", {"fields": ("whatsapp_number", "linkedin_url", "twitter_url", "instagram_url")}),
+        ("Social links", {"fields": ("whatsapp_number", "linkedin_url", "twitter_url", "instagram_url", "facebook_url", "youtube_url")}),
         ("Contact info", {"fields": ("contact_email", "phone_number", "hours_text")}),
         ("Bottom bar", {"fields": ("copyright_text", "bottom_note")}),
     )
